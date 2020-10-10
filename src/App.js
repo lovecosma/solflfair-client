@@ -8,6 +8,7 @@ import Signup from './containers/SignupForm'
 import Login from './containers/LoginForm'
 import continueSession from './actions/continueSession'
 import { BrowserRouter as Router, Switch, Route,  } from 'react-router-dom';
+import Cart from './containers/Cart'
 
 
 //TODO: All items upon load
@@ -37,6 +38,7 @@ class App extends Component {
           <Route exact path='/login' component={ Login }/>
           <Route exact path='/logout' compnent={ Home }/>
           <Route exact path='/signup' component={ Signup }/>
+          <Route exact path='/cart' component={ Cart }/>
         </div>
     </Switch>
   </Router>

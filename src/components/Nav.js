@@ -19,6 +19,7 @@ export class Nav extends Component {
                         <li><NavLink to="/">Home</NavLink></li>
                         <li><NavLink to="/items">List Products</NavLink></li>
                         <li><NavLink to="/items/new">Create Product</NavLink></li>
+                        <li><NavLink to="/cart">View Cart</NavLink></li>
                         <li><NavLink onClick={ this.handleClick }to="/">Logout</NavLink></li>
                     </ul>
                 </nav>
