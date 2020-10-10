@@ -19,9 +19,7 @@ function usersReducer(state = { isLoggedIn: false, user: {},  requesting: false 
             isLoggedIn: false,
             user: {},
             requesting: false
-    }
-   
-   
+    } 
       default:
         return state;
     }

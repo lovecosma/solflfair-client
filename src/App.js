@@ -6,6 +6,7 @@ import Nav from './components/Nav'
 import Home from './containers/Home'
 import Signup from './containers/SignupForm'
 import Login from './containers/LoginForm'
+import continueSession from './actions/continueSession'
 import { BrowserRouter as Router, Switch, Route,  } from 'react-router-dom';
 
 
@@ -13,8 +14,15 @@ import { BrowserRouter as Router, Switch, Route,  } from 'react-router-dom';
 
  
 class App extends Component {
-  handleClick = event => {
-    debugger
+
+
+  componentDidMount = () => {
+    const loggedInUser = localStorage.getItem("user");
+    if(loggedInUser){
+      this.props.continueSession(loggedInUser)
+    } else {
+      this.props.history.push("/")
+    }
   }
  
   render() {
@@ -27,7 +35,7 @@ class App extends Component {
           <Route exact path="/items" component={ Items } />
           <Route exact path="/items/new" component={ ItemForm } />
           <Route exact path='/login' component={ Login }/>
-          <Route exact path='/logout' render={ () => this.handleClick }/>
+          <Route exact path='/logout' compnent={ Home }/>
           <Route exact path='/signup' component={ Signup }/>
         </div>
     </Switch>
@@ -37,4 +45,4 @@ class App extends Component {
 };
 
 
-export default connect()(App)
+export default connect(null, { continueSession })(App)

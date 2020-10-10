@@ -17,6 +17,7 @@ const userLogin = user => {
         .then(resp => resp.json())
         .then(session => {
             if (session.status === 200) {
+              localStorage.setItem('user', JSON.stringify(session.user))
               dispatch({type:"LOGIN", user: session.user})
             } else {
                 console.log(user.errors)

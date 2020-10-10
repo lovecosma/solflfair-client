@@ -15,7 +15,6 @@ function itemsReducer(state = { items: [], requesting: false }, action) {
         }
    
       case 'ADD_ITEMS':
-          console.log(action.item)
         return {
           ...state,
           items: action.items,

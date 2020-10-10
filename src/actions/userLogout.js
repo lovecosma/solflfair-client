@@ -1,5 +1,4 @@
 const userLogout = () => {
-    debugger
     return dispatch => {
         dispatch({ type: 'START_ADDING_USER_REQUEST' })
         const formData = {
