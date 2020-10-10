@@ -1,26 +1,40 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react';
+import { connect } from 'react-redux'
+import Items from './containers/Items'
+import ItemForm from './containers/ItemForm'
+import Nav from './components/Nav'
+import Home from './containers/Home'
+import Signup from './containers/SignupForm'
+import Login from './containers/LoginForm'
+import { BrowserRouter as Router, Switch, Route,  } from 'react-router-dom';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
 
-export default App;
+//TODO: All items upon load
+
+ 
+class App extends Component {
+  handleClick = event => {
+    debugger
+  }
+ 
+  render() {
+    return(
+    <Router>
+      <Switch>
+        <div>
+          <Nav/>
+          <Route exact path="/" component={ Home } />
+          <Route exact path="/items" component={ Items } />
+          <Route exact path="/items/new" component={ ItemForm } />
+          <Route exact path='/login' component={ Login }/>
+          <Route exact path='/logout' render={ () => this.handleClick }/>
+          <Route exact path='/signup' component={ Signup }/>
+        </div>
+    </Switch>
+  </Router>
+    );
+  }
+};
+
+
+export default connect()(App)
