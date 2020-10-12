@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import  userLogin from '../actions/userLogin'
 import { connect } from 'react-redux'
-import { BrowserRouter as Router, Switch, Route,  } from 'react-router-dom';
 
 export class LoginForm extends Component {
     state = {

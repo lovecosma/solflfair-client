@@ -8,6 +8,7 @@ import Signup from './containers/SignupForm'
 import Login from './containers/LoginForm'
 import continueSession from './actions/continueSession'
 import { BrowserRouter as Router, Switch, Route,  } from 'react-router-dom';
+import fetchCart from './actions/fetchCart'
 import Cart from './containers/Cart'
 
 
@@ -21,6 +22,7 @@ class App extends Component {
     const loggedInUser = localStorage.getItem("user");
     if(loggedInUser){
       this.props.continueSession(loggedInUser)
+      this.props.fetchCart(loggedInUser)
     } else {
       this.props.history.push("/")
     }
@@ -47,4 +49,4 @@ class App extends Component {
 };
 
 
-export default connect(null, { continueSession })(App)
+export default connect(null, { continueSession, fetchCart })(App)
