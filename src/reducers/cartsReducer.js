@@ -19,11 +19,29 @@ function cartsReducer(state = { cart: {}, requesting: false }, action) {
           requesting: true
         }
         case 'ADD_ITEM_TO_CART':
+          return {
+            ...state,
+            cart: {
+              ...state.cart,
+              items: [...state.cart.items, action.item]
+            },
+            requesting: false
+          }
+          case 'REMOVE_ITEM_FROM_CART':
         return {
             ...state,
             cart: {
                 ...state.cart,
-                items: [...state.cart.items, action.item]
+                items: [...action.cart.items]
+            },
+            requesting: false
+        }
+        case 'INCREASE_QUANTITY':
+        return {
+            ...state,
+            cart: {
+                ...state.cart,
+                items: [...action.cart.items]
             },
             requesting: false
         }

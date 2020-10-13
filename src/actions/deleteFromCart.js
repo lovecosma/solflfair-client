@@ -1,11 +1,11 @@
-const deleteFromCart = (cart, item, user) => {
+const deleteFromCart = (item, cart) => {
+
     return dispatch => {
         const formData = {
             cart : {
-                item_ids: [item.id]
+                item_ids: item.id
             }
         }
-        console.log(formData)
         const configObj = {
             method: "PATCH",
             headers: {
@@ -15,8 +15,10 @@ const deleteFromCart = (cart, item, user) => {
               body: JSON.stringify(formData)
          }
         dispatch({type: "START_ADD_TO_CART_REQUEST"})
-        fetch(`http://localhost:3001/users/${user.id}/carts/1`, configObj)
+        fetch(`http://localhost:3001/users/${cart.user_id}/carts/${cart.id}/remove`, configObj)
         .then(resp => resp.json())
-        .then(cart => console.log(cart))
+        .then(cart => dispatch({type: "REMOVE_ITEM_FROM_CART", cart}))
     }
 }
+
+export default deleteFromCart

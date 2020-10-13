@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import fetchItems from '../actions/fetchItems' 
-import AddToCart from '../components/AddToCart';
 import ItemCard from '../components/ItemCard'
 import { v4 as uuidv4 } from 'uuid';
 
@@ -14,8 +13,7 @@ import { v4 as uuidv4 } from 'uuid';
     render() {
         const items = this.props.session.itemsReducer.items.map(item =>
         <div>
-        <ItemCard key={uuidv4()} item={item}/>
-        <AddToCart key={uuidv4()} item={item}/>
+        <ItemCard key={uuidv4()} item={item} history={this.props.history}/>
         </div>
         );
         return (

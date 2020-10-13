@@ -1,53 +1,71 @@
+// import React, { Component } from 'react'
+// import { connect } from 'react-redux'
+// import fetchCart from '../actions/fetchCart'
+// import CartItemCard from '../components/CartItemCard'
+import { v4 as uuidv4 } from 'uuid';
+
+//  export class Cart extends Component {
+    //     state = {
+        //         cartItems: []
+        //     }
+        //     componentDidMount = () => {
+            //         const user = this.props.usersReducer.user 
+            //         this.props.fetchCart(user)
+            //         this.props.fetchCartItems(user)
+            //     }
+            
+            //      render() {
+                //          debugger         
+                //          return (
+                    //              <div>
+                    //                 {/* {cartItemCards}  */}
+                    //              </div>
+                    //          )
+                    //      }
+                    //  }
+                    
+                    //  const mapStateToProps = state => {
+                        //      return state
+                        //  }
+                        
+                        //  export default connect(mapStateToProps, { fetchCart, fetchCartItems })(Cart)
+import fetchCartItems from '../actions/fetchCartItems'
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import fetchCart from '../actions/fetchCart'
-import ItemCard from '../components/ItemCard'
-import DeleteFromCart from '../components/DeleteFromCart'
-import { v4 as uuidv4 } from 'uuid';
- class Cart extends Component {
+import CartItemCard from '../components/CartItemCard'
 
-    state = {
-        item: [],
-        total: null
-    }
-
+export class Cart extends Component {
+                            
     componentDidMount = () => {
-         const current_user = this.props.state.usersReducer.user
-         this.props.fetchCart(current_user)
+        const user = this.props.usersReducer.user
+        this.props.fetchCart(user)
+        this.props.fetchCartItems(user)
     }
 
-    render() {
-        // const items = this.props.state.cartsReducer.cart.items.map(item => <ItemCard key={item.id} item={item}/>);
-        const items = this.props.state.cartsReducer.cart.items
-        if(items){
-            const itemCards = items.map(item =>
-                <div>
-                    <ItemCard key={uuidv4()} item={item}/> 
-                    <DeleteFromCart key={uuidv4()}item={item}/>
-                </div>
-            )
-        return (
-            <div>
-                <h1>Your Cart</h1>
-                { itemCards }
-            </div>
-        )
-        } else {
+     render() {
+         const items = this.props.cartItemsReducer.cartItems
+         if(items.length > 0){
+             const itemCards = items.map(item => <CartItemCard key={uuidv4()} item={item} /> )
+        
             return (
                 <div>
-                    <h1>Your Cart</h1>
+                    { itemCards }
+                </div>
+            )
+        }else{
+            return (
+                <div>
+                    <h2>Nothing to show</h2>
                 </div>
             )
         }
-        
-    }
-}
+     }
+ }
 
-const mapStateToProps = state => {
-    return {
-        state
-    }
-}
-
-
-export default connect(mapStateToProps, { fetchCart })(Cart)
+ const mapStateToProps = state => {
+     return state
+ }
+ 
+ export default connect(mapStateToProps, { fetchCart, fetchCartItems })(Cart)
+ 

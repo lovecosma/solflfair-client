@@ -35,8 +35,8 @@ class App extends Component {
         <div>
           <Nav/>
           <Route exact path="/" component={ Home } />
-          <Route exact path="/items" component={ Items } />
-          <Route exact path="/items/new" component={ ItemForm } />
+          <Route exact path="/items" render={routerProps => <Items {...routerProps} /> } />
+          <Route exact path="/items/new" component={ ItemForm }/>
           <Route exact path='/login' component={ Login }/>
           <Route exact path='/logout' compnent={ Home }/>
           <Route exact path='/signup' component={ Signup }/>
