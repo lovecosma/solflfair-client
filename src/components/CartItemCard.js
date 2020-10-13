@@ -9,10 +9,11 @@ import deleteFromCart from '../actions/deleteFromCart'
     }
 
     render() {
+        const qty = this.props.cartItemsReducer.quantities
         return (
             <div>
                 <h2>{ this.props.item.name }</h2>
-                <p>Qty: { this.props.quantity }</p>
+                <p>Qty: {qty[this.props.item.name]}</p>
                 <p> { this.props.item.price } </p>
                 <button onClick={this.deleteFromCart}>Remove from Cart</button>
             </div>
@@ -20,5 +21,9 @@ import deleteFromCart from '../actions/deleteFromCart'
     }
 }
 
-export default connect(null, { deleteFromCart })(CartItemCard)
+    const mapStateToProps = state => {
+        return state
+    }
+
+export default connect(mapStateToProps, { deleteFromCart })(CartItemCard)
 

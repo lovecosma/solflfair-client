@@ -7,7 +7,6 @@ const addItemToCart = (user, item, cart, history) => {
                 cart_id: cart.id
             }
         }
-        debugger
         const configObj = {
             method: "POST",
             headers: {

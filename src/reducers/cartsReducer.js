@@ -23,7 +23,8 @@ function cartsReducer(state = { cart: {}, requesting: false }, action) {
             ...state,
             cart: {
               ...state.cart,
-              items: [...state.cart.items, action.item]
+              items: [...state.cart.items
+                ,action.item]
             },
             requesting: false
           }
@@ -36,15 +37,15 @@ function cartsReducer(state = { cart: {}, requesting: false }, action) {
             },
             requesting: false
         }
-        case 'INCREASE_QUANTITY':
-        return {
-            ...state,
-            cart: {
-                ...state.cart,
-                items: [...action.cart.items]
-            },
-            requesting: false
-        }
+        // case 'INCREASE_QUANTITY':
+        // return {
+        //     ...state,
+        //     cart: {
+        //         ...state.cart,
+        //         items: [...action.cart.items]
+        //     },
+        //     requesting: false
+        // }
       default:
         return state;
     }

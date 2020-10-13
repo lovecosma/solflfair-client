@@ -11,7 +11,9 @@ const addItem = (item) => {
      }
     fetch('http://localhost:3001/items', configObj)
     .then(resp => resp.json())
-    .then(item => dispatch({type: 'ADD_ITEM', item}))
+    .then(item => {
+        dispatch({type: 'ADD_ITEM', item})
+        })
     }
 }
 
