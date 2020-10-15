@@ -10,6 +10,7 @@ class ItemCard extends Component{
         this.props.history.push('/cart')
     }
 
+
     render(){
         const item = this.props.item
         return (

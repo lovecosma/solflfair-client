@@ -29,34 +29,42 @@ class App extends Component {
   }
  
   render() {
-    if (this.props.cartItemsReducer.requesting) {
-      return (
-          <div>
-            <h2>
-              Loading...
-            </h2>
-          </div>
-        ) 
+    if (this.props.usersReducer.isLoggedIn) {
+      if (this.props.cartItemsReducer.requesting) {
+        return <div><h2>Loading...</h2></div>
+      } else {
+        return (
+        <Router>
+          <Switch>
+            <div>
+              <Nav/>
+              <Route exact path='/cart' component={ Cart }/>
+              <Route exact path='/logout' compnent={ Home }/>
+              <Route exact path="/items" render={routerProps => <Items {...routerProps} cart={this.props.cartItemsReducer.cartItems}/> } />
+            </div>
+          </Switch>
+        </Router>
+        )  
+      }     
     } else {
-    return (
-      <Router>
-        <Switch>
-          <div>
-            <Nav/>
-            <Route exact path="/" component={ Home } />
-            <Route exact path="/items" render={routerProps => <Items {...routerProps} cart={this.props.cartItemsReducer.cartItems}/> } />
-            <Route exact path="/items/new" component={ ItemForm }/>
-            <Route exact path='/login' component={ Login }/>
-            <Route exact path='/logout' compnent={ Home }/>
-            <Route exact path='/signup' component={ Signup }/>
-            <Route exact path='/cart' component={ Cart }/>
-          </div>
-      </Switch>
-    </Router>
-      );
+
+        return (
+          <Router>
+            <Switch>
+              <div>
+                <Nav/>
+                <Route exact path="/" component={ Home } />
+                <Route exact path="/items" render={routerProps => <Items {...routerProps} />}/>
+                <Route exact path='/login' component={ Login }/>
+                <Route exact path='/signup' component={ Signup }/>
+              </div>
+          </Switch>
+        </Router>
+          );
+        
+      }
     }
   }
-};
 
 const mapStateToProps = state => {
   return state
