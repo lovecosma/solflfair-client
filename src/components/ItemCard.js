@@ -5,9 +5,9 @@ import addItemToCart from '../actions/addItemToCart'
 class ItemCard extends Component{
 
     addItem = () => {
-       const user = this.props.usersReducer.user
-       const cart = this.props.cartsReducer.cart
-       this.props.addItemToCart(user, this.props.item, cart, this.props.history)
+        const user = JSON.parse(localStorage.getItem("user"))
+        this.props.addItemToCart(user, this.props.item, this.props.cart)
+        this.props.history.push('/cart')
     }
 
     render(){

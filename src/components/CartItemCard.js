@@ -5,19 +5,20 @@ import deleteFromCart from '../actions/deleteFromCart'
  class CartItemCard extends Component {
 
     deleteFromCart = () => {
-        
+        const user = JSON.parse(localStorage.getItem("user"))
+        this.props.deleteFromCart(user, this.props.cartItem)
     }
 
     render() {
-        const qty = this.props.cartItemsReducer.quantities
-        return (
-            <div>
-                <h2>{ this.props.item.name }</h2>
-                <p>Qty: {qty[this.props.item.name]}</p>
-                <p> { this.props.item.price } </p>
-                <button onClick={this.deleteFromCart}>Remove from Cart</button>
-            </div>
-        )
+       return (
+           <div>
+               <h1>{this.props.cartItem.name}</h1>
+               <p>Qty: {this.props.cartItem.quantity}</p>
+               <button onClick={this.deleteFromCart}>-</button><button>+</button>
+               <p>Price: {(this.props.cartItem.quantity * this.props.cartItem.price).toFixed(2)}</p>
+           </div>
+       )
+
     }
 }
 

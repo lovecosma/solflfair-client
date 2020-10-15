@@ -17,6 +17,7 @@ const userLogout = () => {
         .then(session => {
             if (session.status === 200) {
               dispatch({type:"LOGOUT"})
+              localStorage.removeItem("user")
             } else {
                 console.log(session.errors)
             }

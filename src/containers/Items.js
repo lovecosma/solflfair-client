@@ -13,7 +13,7 @@ import { v4 as uuidv4 } from 'uuid';
     render() {
         const items = this.props.session.itemsReducer.items.map(item =>
         <div>
-        <ItemCard key={uuidv4()} item={item} history={this.props.history}/>
+        <ItemCard key={uuidv4()} item={item} history={this.props.history} cart={this.props.cart}/>
         </div>
         );
         return (

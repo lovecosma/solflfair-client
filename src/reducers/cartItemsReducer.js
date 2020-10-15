@@ -1,4 +1,4 @@
-function cartItemsReducer(state = { cartItems: [], requesting: false, quantities: {} }, action) {
+function cartItemsReducer(state = { cartItems: [], requesting: true, quantities: {} }, action) {
     switch (action.type) {
       case "START_CART_ITEMS_FETCH_REQUEST":
         return {
@@ -12,13 +12,29 @@ function cartItemsReducer(state = { cartItems: [], requesting: false, quantities
           cartItems: [...action.cartItems],
           requesting: false
         }
-        case 'INCREASE_QUANTITY':
+        case "START_CART_ADD_ITEM":
         return {
-           ...state,
-           quantities: {
-             ...state.quantities,
-             [action.info.name]: action.info.quantity
-           } 
+          ...state,
+          cartItems: [...state.cartItems],
+          requesting: true
+        }
+        case 'ADD_CART_ITEM':
+        return {
+          ...state,
+          cartItems: [...state.cartItems, action.cartItem],
+          requesting: false
+        }
+        case "START_UPDATE_ITEM_QUANTITY":
+        return {
+          ...state,
+          cartItems: [...state.cartItems],
+          requesting: true
+        }
+        case 'UPDATE_ITEM_QUANTITY':
+        return {
+          ...state,
+          cartItems: [action.cartItems],
+          requesting: false
         }
         default: 
         return state
