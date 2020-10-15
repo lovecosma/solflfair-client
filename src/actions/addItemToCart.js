@@ -51,6 +51,7 @@ const addItemToCart = (user, item, cart) => {
             fetch(`http://localhost:3001/users/${user.id}/cart_items`, configObj)
             .then(resp => resp.json())
             .then(cartItem => {
+                console.log(cartItem);
                 dispatch({type: 'ADD_CART_ITEM', cartItem})
             })
         }   

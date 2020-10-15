@@ -32,7 +32,7 @@ export class Cart extends Component {
             )
          }else{
              console.log(this.props.cartItemsReducer.cartItems);
-            const cartItemCards = this.props.cartItemsReducer.cartItems.map(cartItem => <CartItemCard id={uuidv4()}cartItem={cartItem}/>)
+            const cartItemCards = this.props.cartItemsReducer.cartItems.map(cartItem => <CartItemCard id={uuidv4()}cartItem={cartItem}cart={this.props.cartItemsReducer.cartItems}/>)
              return (
                  <div>
                      {cartItemCards}
