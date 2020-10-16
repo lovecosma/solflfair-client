@@ -35,6 +35,7 @@ const addItemToCart = (user, item, cart) => {
                 cart_item: {
                     name: item.name,
                     price: item.price,
+                    photo: item.photo,
                     quantity: 1,
                     user_id: user.id
                 }

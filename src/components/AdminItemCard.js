@@ -32,7 +32,6 @@ class AdminItemCard extends Component{
                     <h2>{ item.name }</h2>
                     <p> { item.price } </p>
                     <img src={item.photo} alt=""></img>
-                    <button onClick={this.uploadPhoto}>Upload Image</button>
                 </div>
             )
         } else {
@@ -40,8 +39,8 @@ class AdminItemCard extends Component{
                 <div>
                     <h2>{ item.name }</h2>
                     <p> { item.price } </p>
-                    <input type="file" name="newPhoto"accept="image/png, image/jpeg" onChange={this.handleImageChange} />                
-                    <button onClick={this.uploadPhoto}>Upload Image</button>
+                    {/* <input type="file" name="newPhoto"accept="image/png, image/jpeg" onChange={this.handleImageChange} />                
+                    <button onClick={this.uploadPhoto}>Upload Image</button> */}
                 </div>
             )
         }

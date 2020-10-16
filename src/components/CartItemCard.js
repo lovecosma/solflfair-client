@@ -18,14 +18,27 @@ import addItemToCart from '../actions/addItemToCart'
     }
 
     render() {
-       return (
-           <div>
-               <h1>{this.props.cartItem.name}</h1>
-               <p>Qty: {this.props.cartItem.quantity}</p>
-               <button onClick={this.deleteFromCart}>-</button><button onClick={this.addDuplicate}>+</button>
-               <p>Price: {(this.props.cartItem.quantity * this.props.cartItem.price).toFixed(2)}</p>
-           </div>
-       )
+        if (this.props.cartItem.photo) {
+            return (
+                <div>
+                    <h1>{this.props.cartItem.name}</h1>
+                    <img src={this.props.cartItem.photo} alt=""></img>
+                    <p>Qty: {this.props.cartItem.quantity}</p>
+                    <button onClick={this.deleteFromCart}>-</button><button onClick={this.addDuplicate}>+</button>
+                    <p>Price: {(this.props.cartItem.quantity * this.props.cartItem.price).toFixed(2)}</p>
+                </div>
+            ) 
+        } else {
+            return (
+                <div>
+                    <h1>{this.props.cartItem.name}</h1>
+                    <p>Qty: {this.props.cartItem.quantity}</p>
+                    <button onClick={this.deleteFromCart}>-</button><button onClick={this.addDuplicate}>+</button>
+                    <p>Price: {(this.props.cartItem.quantity * this.props.cartItem.price).toFixed(2)}</p>
+                </div>
+            )
+            
+        }
 
     }
 }

@@ -13,13 +13,24 @@ class ItemCard extends Component{
 
     render(){
         const item = this.props.item
-        return (
-            <div>
-                <h2>{ item.name }</h2>
-                <p> { item.price } </p>
-                <button onClick={this.addItem}>Add To Cart</button>
-            </div>
-        )
+        if (item.photo) {
+            return (
+                <div>
+                    <h2>{ item.name }</h2>
+                    <p> { item.price } </p>
+                    <img src={item.photo} alt=""></img><br></br>
+                    <button onClick={this.addItem}>Add to Cart</button>
+                </div>
+            )   
+        } else {
+            return (
+                <div>
+                    <h2>{ item.name }</h2>
+                    <p> { item.price } </p>
+                    <button onClick={this.addItem}>Add to Cart</button>
+                </div>
+            )            
+        }
     }
 }
 
