@@ -20,51 +20,68 @@ class App extends Component {
 
   componentDidMount = () => { 
     const loggedInUser = JSON.parse(localStorage.getItem("user"));
+    debugger
     if(loggedInUser){
-      this.props.continueSession(loggedInUser)
-      this.props.fetchCartItems(loggedInUser)
+    this.props.continueSession(loggedInUser)
     } else {
       // routerProps.history.push('/login')
     }
   }
  
   render() {
-    if (this.props.usersReducer.isLoggedIn) {
-      if (this.props.cartItemsReducer.requesting) {
-        return <div><h2>Loading...</h2></div>
+    const logged_in = this.props.usersReducer.isLoggedIn
+    if (this.props.usersReducer.requesting) {
+      return <div><h1>Loading</h1></div>
+    } else {
+      if(logged_in){
+          if (this.props.usersReducer.user.admin) {
+              return (
+                  <Router>
+                    <Switch>
+                    <div>
+                      <Nav/>
+                      <Route exact path='/' component={ Home }/>
+                      <Route exact path="/items" render={routerProps => <Items {...routerProps} cart={[]}/> } />
+                      <Route exact path="/items/new" component={ ItemForm } />
+                      <Route exact path='/logout' component={ Home }/>
+                    </div>
+                  </Switch>
+                </Router>
+              ) 
+          } else {
+            return (
+              <Router>
+                <Switch>
+                  <div>
+                    <Nav/>
+                    <Route exact path='/' component={ Home }/>
+                    <Route exact path='/cart' component={ Cart }/>
+                    <Route exact path="/items" render={routerProps => <Items {...routerProps} cart={this.props.cartItemsReducer.cartItems}/> } />
+                    <Route exact path='/logout' component={ Home }/>
+                    {/* <Route exact path='/signup' component={ Signup }/> */}
+                  </div>
+                </Switch>
+              </Router>
+            )
+          }
       } else {
         return (
-        <Router>
-          <Switch>
-            <div>
-              <Nav/>
-              <Route exact path='/cart' component={ Cart }/>
-              <Route exact path='/logout' compnent={ Home }/>
-              <Route exact path="/items" render={routerProps => <Items {...routerProps} cart={this.props.cartItemsReducer.cartItems}/> } />
-            </div>
-          </Switch>
-        </Router>
-        )  
-      }     
-    } else {
-
-        return (
-          <Router>
-            <Switch>
-              <div>
-                <Nav/>
-                <Route exact path="/" component={ Home } />
-                <Route exact path="/items" render={routerProps => <Items {...routerProps} />}/>
-                <Route exact path='/login' component={ Login }/>
-                <Route exact path='/signup' component={ Signup }/>
-              </div>
-          </Switch>
-        </Router>
-          );
-        
+                <Router>
+                  <Switch>
+                    <div>
+                      <Nav/>
+                      <Route exact path="/items" render={routerProps => <Items {...routerProps} />}/>
+                      <Route exact path='/login' component={ Login }/>
+                      <Route exact path='/signup' component={ Signup }/>
+                    </div>
+                  </Switch>
+                </Router>
+                )  
       }
+      
     }
   }
+}
 
 const mapStateToProps = state => {
   return state

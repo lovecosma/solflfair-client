@@ -13,7 +13,7 @@ import { v4 as uuidv4 } from 'uuid';
     
     render() {
       
-      if (this.props.session.usersReducer.isLoggedIn) {
+      if (this.props.session.usersReducer.isLoggedIn && !this.props.session.usersReducer.user.admin) {
         
         const items = this.props.session.itemsReducer.items.map(item =>
         <div>

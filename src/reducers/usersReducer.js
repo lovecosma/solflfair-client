@@ -10,7 +10,7 @@ function usersReducer(state = { isLoggedIn: false, user: {},  requesting: false 
     case 'LOGIN':
         return {
             isLoggedIn: true,
-            user: action.user,
+            user: {...action.user},
             requesting: false
     }
 

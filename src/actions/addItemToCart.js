@@ -36,7 +36,7 @@ const addItemToCart = (user, item, cart) => {
                     name: item.name,
                     price: item.price,
                     quantity: 1,
-                    cart_id: 1
+                    user_id: user.id
                 }
             }
             const configObj = {

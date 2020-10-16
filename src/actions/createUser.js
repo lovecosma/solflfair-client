@@ -3,8 +3,11 @@ const createUser = user => {
     return dispatch => {
         dispatch({ type: 'START_CREATING_USER_REQUEST' })
         const formData = {
-                user
-            }
+          user:{
+            ...user,
+            admin: false
+          }
+        }
          const configObj = {
             method: "POST",
             headers: {
@@ -17,7 +20,9 @@ const createUser = user => {
         .then(resp => resp.json())
         .then(user => {
             if (user.status === 'created') {
-              dispatch({type:"LOGIN", user})
+              const current_user = user.user
+             localStorage.setItem('user', JSON.stringify(current_user))
+              dispatch({type:"LOGIN", current_user})
             } else {
                 console.log(user.errors)
             }

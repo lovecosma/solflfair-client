@@ -35,7 +35,7 @@ function cartItemsReducer(state = { cartItems: [], requesting: true, quantities:
         case 'UPDATE_ITEM_QUANTITY':
         return {
           ...state,
-          cartItems: [action.cartItems].sort((a, b) => b.id - a.id),
+          cartItems: [...action.cartItems].sort((a, b) => b.id - a.id),
           requesting: false
         }
         default: 
