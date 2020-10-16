@@ -20,7 +20,6 @@ class App extends Component {
 
   componentDidMount = () => { 
     const loggedInUser = JSON.parse(localStorage.getItem("user"));
-    debugger
     if(loggedInUser){
     this.props.continueSession(loggedInUser)
     } else {
