@@ -40,7 +40,7 @@ export class LoginForm extends Component {
                     {/* <label for="password">Password:</label> */}
                     <input onChange={this.handleChange} type="password" name="password" placeholder={'Password'} style={{display: "block"},{width: "750px"}}></input><br></br><br></br>
                    </div>
-                    <button className={"waves-effect waves-light btn"}type='submit' name='submit' id='submit'>Login</button>
+                    <button className={"waves-effect waves-light black text-white btn"}type='submit' name='submit' id='submit'>Login</button>
                  </form> 
             </div>
         )

@@ -34,14 +34,24 @@ export class ItemForm extends Component {
 
     render() {
         return (
-            <div>
+            <div className={'container'}>
+                <br></br>
+                <br></br>
+                <br></br>
+                <h5 className={"center"}>Create New Item</h5>
                 <form onSubmit={this.handleSubmit} >
-                    <label htmlFor="name">Item Name:</label>
-                    <input onChange={this.handleChange} type="text" name="name" id="name"></input><br></br><br></br>
-                    <label htmlFor="price">Price:</label>
-                    <input onChange={this.handleChange} type="text" name="price" id="price"></input><br></br><br></br>
-                    <input type="file" name="newPhoto"accept="image/png, image/jpeg" onChange={this.handleImageChange} />                
-                    <button>Create Item</button>
+                    <div className={"input-field"}>
+                    <input onChange={this.handleChange} type="text" name="name" id="name" placeholder="Item Name"></input><br></br><br></br>
+                    </div>
+                    <div className={"input-field"}>
+                    <input onChange={this.handleChange} type="text" name="price" id="price" placeholder="Item Price"></input><br></br><br></br>
+                    </div>
+                    <div className={"input-field"}>
+                    <input type="file" name="newPhoto"accept="image/png, image/jpeg" onChange={this.handleImageChange} />
+                    </div>
+                    <br></br>
+                    <br></br>                 
+                    <button className={"waves-effect waves-light black text-white btn"}>Create Item</button>
                 </form>
             </div>
         )
