@@ -26,13 +26,21 @@ export class LoginForm extends Component {
 
     render() {
         return (
-            <div>
+            <div className={'center container'}>
+                <br></br>
+                <br></br>
+                <br></br>
+                <h1>Login</h1>
                <form onSubmit={this.handleSubmit}>
-                    <label for="email">Email:</label>
-                    <input onChange={this.handleChange} type="text" name="email"></input><br></br><br></br>
-                    <label for="password">Password:</label>
-                    <input onChange={this.handleChange} type="password" name="password"></input><br></br><br></br>
-                    <button type='submit' name='submit' id='submit'>Login</button>
+                   <div className={'input-field'}>
+                    {/* <label for="email">Email:</label> */}
+                    <input onChange={this.handleChange} type="text" name="email" placeholder="Email" style={{display: "block"},{width: "750px"}}></input><br></br><br></br>
+                   </div>
+                   <div>
+                    {/* <label for="password">Password:</label> */}
+                    <input onChange={this.handleChange} type="password" name="password" placeholder={'Password'} style={{display: "block"},{width: "750px"}}></input><br></br><br></br>
+                   </div>
+                    <button className={"waves-effect waves-light btn"}type='submit' name='submit' id='submit'>Login</button>
                  </form> 
             </div>
         )
@@ -42,3 +50,4 @@ export class LoginForm extends Component {
 
 
 export default connect(null, { userLogin })(LoginForm)
+

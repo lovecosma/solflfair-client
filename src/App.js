@@ -10,6 +10,8 @@ import continueSession from './actions/continueSession'
 import { BrowserRouter as Router, Switch, Route,  } from 'react-router-dom';
 import Cart from './containers/Cart'
 import fetchCartItems from './actions/fetchCartItems'
+import 'materialize-css/dist/css/materialize.min.css';
+
 
 
 //TODO: All items upon load
@@ -37,7 +39,7 @@ class App extends Component {
               return (
                   <Router>
                     <Switch>
-                    <div>
+                    <div className={"box"}>
                       <Nav/>
                       <Route exact path='/' component={ Home }/>
                       <Route exact path="/items" render={routerProps => <Items {...routerProps} cart={[]}/> } />
@@ -57,7 +59,6 @@ class App extends Component {
                     <Route exact path='/cart' component={ Cart }/>
                     <Route exact path="/items" render={routerProps => <Items {...routerProps} cart={this.props.cartItemsReducer.cartItems}/> } />
                     <Route exact path='/logout' component={ Home }/>
-                    {/* <Route exact path='/signup' component={ Signup }/> */}
                   </div>
                 </Switch>
               </Router>

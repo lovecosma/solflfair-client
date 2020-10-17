@@ -34,7 +34,11 @@ export class SignupForm extends Component {
 
     render() {
         return (
-            <div>
+            <div className={"container"}>
+                  <br></br>
+                  <br></br>
+                <h2 className={'center'}>Sign Up</h2>
+                <br></br>
                <form onSubmit={this.handleSubmit}>
                     <label for="first_name">First Name:</label>
                     <input onChange={this.handleChange} type="text" name="first_name"></input><br></br><br></br>

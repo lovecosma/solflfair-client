@@ -16,6 +16,8 @@ export class Nav extends Component {
             if (this.props.session.usersReducer.user.admin) {
                 return (
                     <nav>
+                        <div className={"nav-wrapper black"}>
+                        <a href="#" class="brand-logo center">Solflair Jewelry</a>
                         <ul>
                             <li><NavLink to="/">Home</NavLink></li>
                             <li><NavLink to="/items">List Products</NavLink></li>
@@ -23,11 +25,13 @@ export class Nav extends Component {
                             {/* <li><NavLink to="/cart">View Cart</NavLink></li> */}
                             <li><NavLink onClick={ this.handleClick }to="/">Logout</NavLink></li>
                         </ul>
+                        </div>
                     </nav>
                 ) 
             } else {
                return (
-                    <nav>
+                    <nav className={"nav-wrapper black"}>
+                     <a href="#" class="brand-logo center">Solflair Jewelry</a>
                         <ul>
                             <li><NavLink to="/">Home</NavLink></li>
                             <li><NavLink to="/items">List Products</NavLink></li>
@@ -40,7 +44,8 @@ export class Nav extends Component {
             }
         } else {
             return (
-                <nav>
+                <nav className={"nav-wrapper black center-align"}>
+                 <a href="#" class="brand-logo center">Solflair Jewelry</a>
                     <ul>
                         <li><NavLink to="/">Home</NavLink></li>
                         <li><NavLink to="/items">List Products</NavLink></li>
