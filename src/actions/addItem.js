@@ -20,21 +20,22 @@ const addItem = (itemStuff) => {
     .then(resp => resp.json())
     .then(item => {
         dispatch({type: 'ADD_ITEM', item})
+        if(itemStuff.photo){
         const formData = new FormData();
-        debugger
         formData.append("file", itemStuff.photo);
         formData.append("item_id", item.id)
         dispatch({type: "'START_ADDING_PHOTO_REQUEST'"})
-        fetch(`http://localhost:3001/photos`, {
-            method: "POST",
-            body: formData
-          })
-            .then(res => res.json())
-            .then(items => {
-                debugger
-                dispatch({type: "UPDATE_ITEMS", items})
-            });
+            fetch(`http://localhost:3001/photos`, {
+                method: "POST",
+                body: formData
+            })
+                .then(res => res.json())
+                .then(items => {
+                    dispatch({type: "UPDATE_ITEMS", items})
+                });
+            }
         })
+        
     }
 }
 

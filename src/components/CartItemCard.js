@@ -32,7 +32,7 @@ import addItemToCart from '../actions/addItemToCart'
                     <div className="col s12 m7 l3">
                     <div className="card" style={{width: '300px'}}>
                     <div className="card-image">
-                     <img src={cartItem.photo} alt="" width="250" height="250"></img><br></br>
+                     <img src={cartItem.photo} alt="" width="250" height="400"></img><br></br>
                 </div>
                       <span className="card-title"><h5>{ cartItem.name }</h5></span>
                     <div className="card-content">

@@ -30,7 +30,7 @@ export class LoginForm extends Component {
                 <br></br>
                 <br></br>
                 <br></br>
-                <h1>Login</h1>
+                <h2>Login</h2>
                <form onSubmit={this.handleSubmit}>
                    <div className={'input-field'}>
                     {/* <label for="email">Email:</label> */}

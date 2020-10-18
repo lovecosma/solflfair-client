@@ -11,6 +11,7 @@ import { BrowserRouter as Router, Switch, Route,  } from 'react-router-dom';
 import Cart from './containers/Cart'
 import fetchCartItems from './actions/fetchCartItems'
 import 'materialize-css/dist/css/materialize.min.css';
+import EditItemForm from './containers/EditItemForm';
 
 
 
@@ -44,6 +45,7 @@ class App extends Component {
                       <Route exact path='/' component={ Home }/>
                       <Route exact path="/items" render={routerProps => <Items {...routerProps} cart={[]}/> } />
                       <Route exact path="/items/new" component={ ItemForm } />
+                      <Route exact path='/items/edit' render={routerProps => <EditItemForm {...routerProps}/>}/>
                       <Route exact path='/logout' component={ Home }/>
                     </div>
                   </Switch>

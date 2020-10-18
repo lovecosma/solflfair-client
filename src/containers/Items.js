@@ -23,7 +23,7 @@ import { v4 as uuidv4 } from 'uuid';
 
         )
 
-        return <div className={"center"}><br></br><br></br><div className={'row'} >{items}</div></div>
+        return <div className={"container"}><br></br><br></br><div className={'row'} >{items}</div></div>
 
       } else if(this.props.session.usersReducer.isLoggedIn && this.props.session.usersReducer.user.admin) {
 
@@ -34,7 +34,7 @@ import { v4 as uuidv4 } from 'uuid';
   
           )
   
-          return <div className={"center"}><br></br><br></br><div className={'row'} >{items}</div></div>
+          return <div className={"container"}><br></br><br></br><div className={'row'} >{items}</div></div>
 
 
       } else {
@@ -44,7 +44,7 @@ import { v4 as uuidv4 } from 'uuid';
         <BasicItemCard key={uuidv4()} item={item}/>
         </div>
         )
-        return <div className={"center"}><br></br><br></br><div className={'row'} >{items}</div></div>
+        return <div className={"container"}><br></br><br></br><div className={'row'} >{items}</div></div>
          
     }
         

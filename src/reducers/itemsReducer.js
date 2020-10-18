@@ -1,4 +1,4 @@
-function itemsReducer(state = { items: [], requesting: false }, action) {
+function itemsReducer(state = { items: [], requesting: false, edit_item: {} }, action) {
     switch (action.type) {
    
       case 'START_ADDING_ITEMS_REQUEST':
@@ -34,9 +34,35 @@ function itemsReducer(state = { items: [], requesting: false }, action) {
       
     case 'UPDATE_ITEMS':
       return {
+        ...state,
           items: [...action.items].sort((a, b) => b.id - a.id),
           requesting: false
       }
+      case 'START_UPDATE_ITEM_REQUEST':
+        return {
+          ...state,
+          items: [...state.items].sort((a, b) => b.id - a.id),
+          requesting: true
+        }
+        case 'UPDATE_ITEM':
+      return {
+          ...state,
+          items: [...action.updated_items].sort((a, b) => b.id - a.id),
+          requesting: false
+      }
+      case 'START_ITEM_DELETE_REQUEST':
+        return {
+          ...state,
+          items: [...state.items].sort((a, b) => b.id - a.id),
+          requesting: true
+        }
+        case 'DELETE_ITEM':
+      return {
+        ...state,
+          items: [...action.updated_items].sort((a, b) => b.id - a.id),
+          requesting: false
+      }
+      
    
       default:
         return state;
