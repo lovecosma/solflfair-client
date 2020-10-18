@@ -37,6 +37,8 @@ export class SignupForm extends Component {
             <div className={"container"}>
                   <br></br>
                   <br></br>
+                  <div className={"card-panel"}>
+
                 <h2 className={'center'}>Sign Up</h2>
                 <br></br>
                <form onSubmit={this.handleSubmit}>
@@ -62,6 +64,7 @@ export class SignupForm extends Component {
                     </div>
                     <button className={"waves-effect waves-light black text-white btn"} type='submit' name='submit' id='submit'>Sign Up</button>
                  </form> 
+                  </div>
             </div>
         )
     }

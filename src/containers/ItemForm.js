@@ -36,10 +36,11 @@ export class ItemForm extends Component {
 
     render() {
         return (
-            <div className={'container'}>
+            <div className={'container white'} id="card">
                 <br></br>
                 <br></br>
                 <br></br>
+                <div className={"card-panel"}>
                 <h5 className={"center"}>Create New Item</h5>
                 <form onSubmit={this.handleSubmit} >
                     <div className={"input-field"}>
@@ -58,6 +59,7 @@ export class ItemForm extends Component {
                     <br></br>                 
                     <button className={"waves-effect waves-light black text-white btn"}>Create Item</button>
                 </form>
+                </div>
             </div>
         )
     }

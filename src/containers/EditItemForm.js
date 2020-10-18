@@ -40,10 +40,11 @@ export class EditItemForm extends Component {
             
         }
         return (
-            <div className={'container'}>
+            <div className={'container'} id="card">
                 <br></br>
                 <br></br>
                 <br></br>
+                <div className="card-panel white"></div>
                 <h5 className={"center"}>Update Item</h5>
                 <form onSubmit={this.handleSubmit} >
                     <div className={"input-field"}>

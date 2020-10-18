@@ -13,6 +13,7 @@ import fetchCartItems from './actions/fetchCartItems'
 import 'materialize-css/dist/css/materialize.min.css';
 import EditItemForm from './containers/EditItemForm';
 import ItemShow from './containers/ItemShow'
+import CreatePhoto from './containers/CreatePhoto';
 
 
 
@@ -45,6 +46,7 @@ class App extends Component {
                     <div className={"box"}>
                       <Nav/>
                       <Route exact path='/' component={ Home }/>
+                      <Route exact path='/upload_photos' component={ CreatePhoto }/>
                       <Route exact path="/items" render={routerProps => <Items {...routerProps} cart={[]}/> } />
                       <Route exact path="/items/new" component={ ItemForm } />
                       <Route exact path='/items/edit' render={routerProps => <EditItemForm {...routerProps}/>}/>
