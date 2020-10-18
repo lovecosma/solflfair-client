@@ -11,8 +11,8 @@ const deleteItem = item => {
         fetch(`http://localhost:3001/items/${item.id}`, configObj)
         .then(resp => resp.json())
         .then(updated_items => {
-            debugger
-            // dispatch({type: 'DELETE_ITEM', updated_items})
+            // debugger
+            dispatch({type: 'DELETE_ITEM', updated_items})
         })
     
     }

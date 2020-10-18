@@ -14,13 +14,7 @@ class ItemCard extends Component{
     render(){
         const item = this.props.item
         if (item.photo) {
-            return (
-                // <div>
-                //     <h2>{ item.name }</h2>
-                //     <p> { item.price } </p>
-                //     <img src={item.photo} alt="" width="250" height="250"></img><br></br>
-                //     <button onClick={this.addItem}>Add to Cart</button>
-                // </div>
+            return ( 
                 <div>
                     <div className="col s12 m7 l3">
                     <div className="card" style={{width: '300px'}}>
@@ -42,11 +36,6 @@ class ItemCard extends Component{
             )   
         } else {
             return (
-                // <div>
-                //     <h2>{ item.name }</h2>
-                //     <p> { item.price } </p>
-                //     <button onClick={this.addItem}>Add to Cart</button>
-                // </div>
                     <div class="col s12 m6 l3">
                     <div class="card blue-grey darken-1" style={{width: '300px'}}>
                         <div class="card-content white-text">
