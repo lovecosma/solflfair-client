@@ -4,7 +4,8 @@ const updateItem = item => {
         const formData = {
             item : {
                 name: item.name,
-                price: item.price
+                price: item.price,
+                price: item.description
             }
         }
         const configObj = {

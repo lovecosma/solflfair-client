@@ -37,9 +37,12 @@ const addItemToCart = (user, item, cart) => {
                     price: item.price,
                     photo: item.photo,
                     quantity: 1,
+                    description: item.description,
+                    item_id: item.id,
                     user_id: user.id
                 }
             }
+            debugger
             const configObj = {
                 method: "POST",
                 headers: {

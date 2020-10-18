@@ -1,11 +1,13 @@
 
 const addItem = (itemStuff) => {
+    debugger
     return dispatch => {
     dispatch({ type: 'START_ADDING_ITEMS_REQUEST' })
     const itemData = {
         item : {
             name: itemStuff.name,
-            price: itemStuff.price
+            price: itemStuff.price,
+            description: itemStuff.description
         }
     }
      const configObj = {

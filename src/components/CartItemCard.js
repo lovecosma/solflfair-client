@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { NavLink, Link } from 'react-router-dom';
 import deleteFromCart from '../actions/deleteFromCart'
 import addItemToCart from '../actions/addItemToCart'
 
@@ -21,22 +22,38 @@ import addItemToCart from '../actions/addItemToCart'
         const cartItem = this.props.cartItem
         if (this.props.cartItem.photo) {
             return (
-                <div >
+                <div>
+                    <h3 className="center">{ cartItem.name }</h3> 
                     <div className="card-panel hoverable body">
-                    <div className="container">
-                    <div>
-                        <div>
-                            <span className="card-title"><h3>{ cartItem.name }</h3><img src={cartItem.photo} alt="" width="250" height="300"></img><br></br></span>
-                        </div>
-                        <div className="card-panel  black white-text" >
-                        <p>Price: {(this.props.cartItem.quantity * this.props.cartItem.price).toFixed(2)}</p>
-                        <p>Qty: {this.props.cartItem.quantity}</p>
-                        <p style={{overflow: 'auto'}} >I am a very simple card. I am good at containing small bits of information.
-                        I am convenient because I require little markup to use effectively.</p>
-                        </div>
+                    <div className="container center">
+                    <div style={{width:"100%"}}>
+                    <div id = "leftbox"> 
+                    <Link to={{
+                            pathname:`/item/${cartItem.item_id}`,
+                            state: {...cartItem}  
+                            }}><span>
+                                <div className="card-image">
+                                    <img src={cartItem.photo} alt="" width="350" height="400"></img><br></br>
+                                </div>
+                            </span>
+                    </Link> 
+                    </div>  
+                        {/* <div id = "middlebox"> 
+                            <h2>GeeksforGeeks:</h2> 
+                            The course focuses on various MCQ's & Coding  
+                            question likely to be asked in the interviews 
+                            & make your upcoming placement season efficient 
+                            and successful. 
+                        </div>  */}
+                    <div id = "rightbox" className="card-panel  black white-text">  
+                    <p>Price: {(this.props.cartItem.quantity * this.props.cartItem.price).toFixed(2)}</p>
+                    <p>Qty: {this.props.cartItem.quantity}</p>
+                    <p style={{overflow: 'auto'}} >I am a very simple card. I am good at containing small bits of information.
+                    I am convenient because I require little markup to use effectively.</p>
                     </div>
                     <div className="card-action">
                     <button className={"waves-effect waves-light black text-white btn"} onClick={this.deleteFromCart}>-</button><button onClick={this.addDuplicate} className={"waves-effect waves-light black text-white btn"}>+</button>
+                    </div> 
                     </div>
 
                 </div>

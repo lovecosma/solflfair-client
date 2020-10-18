@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import { connect } from 'react-redux'
-import { Link } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 import addItemToCart from '../actions/addItemToCart'
 
 class ItemCard extends Component{
@@ -15,12 +15,35 @@ class ItemCard extends Component{
     render(){
         const item = this.props.item
         if (item.photo) {
-            return ( 
-                <div>
-                    <div className="col s12 m6 l3">
-                        {/* <button className={"waves-effect waves-light black text-white btn"} >Edit</button> */}
-                    <div className="card hoverable" style={{width: '300px'}}>
-                    <Link to={{
+            // return ( 
+            //     <div>
+            //         <div className="col s12 m6 l4">
+            //             {/* <button className={"waves-effect waves-light black text-white btn"} >Edit</button> */}
+            //         <div className="card hoverable" style={{width: '375px'},{overflow: "auto"}}>
+            //         <Link to={{
+            //         pathname:`/item/${item.id}`,
+            //         state: {...item}  
+            //         }}><span>
+            //         <div className="card-image">
+            //          <img src={item.photo} alt="" width="250" height="400"></img><br></br>
+            //             </div>
+            //         </span>
+            //         </Link>
+            //           <span className="card-title"><h5>{ item.name }</h5></span>
+            //         <div className="card-content" style={{overflow: 'auto'}}>
+            //          <p> $ { item.price } </p>
+            //         </div>
+            //         <div className="card-action">
+            //         </div>
+            //       </div>
+            //     </div>
+            //   </div>
+            // )   
+            return (
+                <div >
+                <div className="col s12 m6 l4">
+                <div className="card hoverable" style={{width: '375px'},{overflow: "auto"}}>
+                <Link to={{
                     pathname:`/item/${item.id}`,
                     state: {...item}  
                     }}><span>
@@ -28,20 +51,20 @@ class ItemCard extends Component{
                      <img src={item.photo} alt="" width="250" height="400"></img><br></br>
                         </div>
                     </span>
-                    </Link>
-                      <span className="card-title"><h5>{ item.name }</h5></span>
-                    <div className="card-content" style={{overflow: 'auto'}}>
-                     <p> $ { item.price } </p>
-                      <p style={{overflow: 'auto'}} >I am a very simple card. I am good at containing small bits of information.
-                      I am convenient because I require little markup to use effectively.</p>
-                    </div>
-                    <div className="card-action">
+                </Link> 
+               <div style={{padding: "1em"}}>
+                  <span><h5>{ item.name }</h5></span>
+               </div>
+                <div className="card-content" style={{overflow: 'scroll'}}>
+                 <p> $ { item.price } </p>
+                </div>
+                <div class="card-action">
                     <button className={"waves-effect waves-light black text-white btn"} onClick={this.addItem}>Add to Cart</button>
-                    </div>
-                  </div>
                 </div>
               </div>
-            )   
+            </div>
+          </div>
+       )   
         } else {
             return (
                     <div class="col s12 m6 l3">
@@ -49,8 +72,6 @@ class ItemCard extends Component{
                         <div class="card-content white-text">
                         <span class="card-title"><h2>{ item.name }</h2></span>
                         <p> $ { item.price } </p>
-                        <p>I am a very simple card. I am good at containing small bits of information.
-                        I am convenient because I require little markup to use effectively.</p>
                         </div>
                         <div class="card-action">
                         <button className={"waves-effect waves-light black text-white btn"} onClick={this.addItem}>Add to Cart</button>

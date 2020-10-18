@@ -7,7 +7,8 @@ export class ItemForm extends Component {
     state ={
         name: "",
         price: "",
-        photo: ""
+        photo: "",
+        description: ""
     }
 
     handleChange = event => {
@@ -22,7 +23,8 @@ export class ItemForm extends Component {
         event.preventDefault()
         this.setState({
             name: "",
-            price: ""
+            price: "",
+            description: "",
         })
         this.props.addItem(this.state)
         this.props.history.push('/items')
@@ -48,6 +50,9 @@ export class ItemForm extends Component {
                     </div>
                     <div className={"input-field"}>
                     <input type="file" name="newPhoto"accept="image/png, image/jpeg" onChange={this.handleImageChange} />
+                    </div>
+                    <div className={"input-field"}>
+                       <input onChange={this.handleChange} type="text" name="description" id="description" placeholder="Item Description" ></input>
                     </div>
                     <br></br>
                     <br></br>                 

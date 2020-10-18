@@ -16,6 +16,7 @@ import ItemShow from './containers/ItemShow'
 
 
 
+
 //TODO: All items upon load
 
  
@@ -74,6 +75,7 @@ class App extends Component {
                   <Switch>
                     <div>
                       <Nav/>
+                      <Route exact path='/item/:id' render={ routerProps => <ItemShow {...routerProps}/>}/>
                       <Route exact path="/items" render={routerProps => <Items {...routerProps} />}/>
                       <Route exact path='/login' component={ Login }/>
                       <Route exact path='/signup' component={ Signup }/>
