@@ -17,7 +17,7 @@ import { v4 as uuidv4 } from 'uuid';
       if (this.props.session.usersReducer.isLoggedIn && !this.props.session.usersReducer.user.admin) {
         
         const items = this.props.session.itemsReducer.items.map(item =>
-        <div>
+        <div className="hoverable">
         <ItemCard key={uuidv4()} item={item} history={this.props.history} cart={this.props.cart}/>
         </div>
 

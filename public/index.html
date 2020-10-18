@@ -11,9 +11,40 @@
     />
     <style>
       @import url('https://fonts.googleapis.com/css2?family=Homemade+Apple&display=swap');
-      h1, h2, h5, a {
+      @import url('https://fonts.googleapis.com/css2?family=Handlee&display=swap');
+      .body {background-color: white;}
+      .ex, .ex2, .ex3 {
+                        display: inline-block;
+                        vertical-align: top;
+                        margin: 0;
+                        padding: 0;
+                        height: 100%;  /* no need of height: 200px; here */
+                    }                  /* if you need to extend it to parent height */
+                                      /* then use height: 100% */
+
+      h1, h2, h3, h5, a {
         font-family: 'Homemade Apple', cursive;
           }
+          p {
+            font-family: 'Handlee', cursive;
+            font-size: 20px;
+          }
+          button{
+            font-family : inherit;
+          }
+          .float-container {
+          padding: 20px;
+          }
+
+          .float-child {
+              width: 50%;
+              float: left;
+              padding: 20px;
+          }
+          .card-spot {
+            overflow: auto;
+          }  
+          
     </style>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />

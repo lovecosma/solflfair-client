@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import { connect } from 'react-redux'
+import { Link } from 'react-router-dom';
 import addItemToCart from '../actions/addItemToCart'
 
 class ItemCard extends Component{
@@ -16,15 +17,22 @@ class ItemCard extends Component{
         if (item.photo) {
             return ( 
                 <div>
-                    <div className="col s12 m7 l3">
-                    <div className="card" style={{width: '300px'}}>
+                    <div className="col s12 m6 l3">
+                        {/* <button className={"waves-effect waves-light black text-white btn"} >Edit</button> */}
+                    <div className="card hoverable" style={{width: '300px'}}>
+                    <Link to={{
+                    pathname:`/item/${item.id}`,
+                    state: {...item}  
+                    }}><span>
                     <div className="card-image">
                      <img src={item.photo} alt="" width="250" height="400"></img><br></br>
-                </div>
+                        </div>
+                    </span>
+                    </Link>
                       <span className="card-title"><h5>{ item.name }</h5></span>
-                    <div className="card-content">
+                    <div className="card-content" style={{overflow: 'auto'}}>
                      <p> $ { item.price } </p>
-                      <p>I am a very simple card. I am good at containing small bits of information.
+                      <p style={{overflow: 'auto'}} >I am a very simple card. I am good at containing small bits of information.
                       I am convenient because I require little markup to use effectively.</p>
                     </div>
                     <div className="card-action">

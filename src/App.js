@@ -12,6 +12,7 @@ import Cart from './containers/Cart'
 import fetchCartItems from './actions/fetchCartItems'
 import 'materialize-css/dist/css/materialize.min.css';
 import EditItemForm from './containers/EditItemForm';
+import ItemShow from './containers/ItemShow'
 
 
 
@@ -33,7 +34,7 @@ class App extends Component {
   render() {
     const logged_in = this.props.usersReducer.isLoggedIn
     if (this.props.usersReducer.requesting) {
-      return <div><h1>Loading</h1></div>
+      return <div className={'container center'}><h1>Loading</h1></div>
     } else {
       if(logged_in){
           if (this.props.usersReducer.user.admin) {
@@ -58,6 +59,7 @@ class App extends Component {
                   <div>
                     <Nav/>
                     <Route exact path='/' component={ Home }/>
+                    <Route exact path='/item/:id' render={ routerProps => <ItemShow {...routerProps}/>}/>
                     <Route exact path='/cart' component={ Cart }/>
                     <Route exact path="/items" render={routerProps => <Items {...routerProps} cart={this.props.cartItemsReducer.cartItems}/> } />
                     <Route exact path='/logout' component={ Home }/>

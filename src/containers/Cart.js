@@ -34,7 +34,7 @@ export class Cart extends Component {
          }else{
             const cartItemCards = this.props.cartItemsReducer.cartItems.map(cartItem => <CartItemCard id={uuidv4()}cartItem={cartItem}cart={this.props.cartItemsReducer.cartItems}/>)
              return (
-                 <div className={"row"}>
+                 <div className={"container"}>
                      <br></br><br></br>
                      {cartItemCards}
                  </div>

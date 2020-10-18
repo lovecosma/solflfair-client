@@ -2,7 +2,10 @@ const updateItem = item => {
     debugger
    return dispatch => {
         const formData = {
-            item : {...item}
+            item : {
+                name: item.name,
+                price: item.price
+            }
         }
         const configObj = {
             method: "PATCH",
@@ -18,6 +21,7 @@ const updateItem = item => {
         .then(updated_items => {
             dispatch({type: 'UPDATE_ITEM', updated_items})
         })
+        debugger
         if(item.photo){
             const formData = new FormData();
             formData.append("file", item.photo);
@@ -29,6 +33,7 @@ const updateItem = item => {
                 })
                     .then(res => res.json())
                     .then(items => {
+                        debugger
                         dispatch({type: "UPDATE_ITEMS", items})
                     });
                 }
