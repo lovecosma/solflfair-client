@@ -36,8 +36,6 @@ class AdminItemCard extends Component{
                             <img src={item.photo} alt="" width="250" height="400"></img><br></br>
                         </div>
                             <p> $ { item.price } </p>
-                            <p>I am a very simple card. I am good at containing small bits of information.
-                            I am convenient because I require little markup to use effectively.</p>
                             </div>
                             <div class="card-action">
                                 <NavLink to={{
@@ -57,8 +55,6 @@ class AdminItemCard extends Component{
                         <div class="card-content white-text">
                             <span class="card-title"><h2 className={"flow-text"} >{ item.name }</h2></span>
                             <p> $ { item.price } </p>
-                            <p>I am a very simple card. I am good at containing small bits of information.
-                            I am convenient because I require little markup to use effectively.</p>
                             </div>
                             <div class="card-action">
                         </div>

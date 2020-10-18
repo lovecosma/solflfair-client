@@ -1,4 +1,5 @@
 const updateItem = item => {
+    debugger
    return dispatch => {
         const formData = {
             item : {...item}
@@ -17,6 +18,20 @@ const updateItem = item => {
         .then(updated_items => {
             dispatch({type: 'UPDATE_ITEM', updated_items})
         })
+        if(item.photo){
+            const formData = new FormData();
+            formData.append("file", item.photo);
+            formData.append("item_id", item.id)
+            dispatch({type: "'START_ADDING_PHOTO_REQUEST'"})
+                fetch(`http://localhost:3001/photos`, {
+                    method: "POST",
+                    body: formData
+                })
+                    .then(res => res.json())
+                    .then(items => {
+                        dispatch({type: "UPDATE_ITEMS", items})
+                    });
+                }
    } 
 }
 

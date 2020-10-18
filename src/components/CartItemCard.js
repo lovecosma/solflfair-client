@@ -21,13 +21,6 @@ import addItemToCart from '../actions/addItemToCart'
         const cartItem = this.props.cartItem
         if (this.props.cartItem.photo) {
             return (
-                // <div>
-                //     <h1>{this.props.cartItem.name}</h1>
-                //     <img src={this.props.cartItem.photo} alt="" width="250" height="250"></img>
-                //     <p>Qty: {this.props.cartItem.quantity}</p>
-                //     <button onClick={this.deleteFromCart}>-</button><button onClick={this.addDuplicate}>+</button>
-                //     <p>Price: {(this.props.cartItem.quantity * this.props.cartItem.price).toFixed(2)}</p>
-                // </div>
                 <div>
                     <div className="col s12 m7 l3">
                     <div className="card" style={{width: '300px'}}>
@@ -50,12 +43,6 @@ import addItemToCart from '../actions/addItemToCart'
             ) 
         } else {
             return (
-                // <div>
-                //     <h1>{this.props.cartItem.name}</h1>
-                //     <p>Qty: {this.props.cartItem.quantity}</p>
-                //     <button onClick={this.deleteFromCart}>-</button><button onClick={this.addDuplicate}>+</button>
-                //     <p>Price: {(this.props.cartItem.quantity * this.props.cartItem.price).toFixed(2)}</p>
-                // </div>
                 <div class="col s12 m6 l3">
                 <div class="card blue-grey darken-1" style={{width: '300px'}}>
                     <div class="card-content white-text">

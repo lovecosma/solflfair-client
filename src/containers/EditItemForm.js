@@ -8,7 +8,7 @@ export class EditItemForm extends Component {
         id: this.props.location.state.id,
         name: this.props.location.state.name,
         price: this.props.location.state.price,
-        photo: this.props.location.state.photo
+        photo: null
     }
 
     handleChange = event => {
