@@ -34,12 +34,12 @@ export class SignupForm extends Component {
 
     render() {
         return (
-            <div className={"container"}>
+            <div className={"container"} >
                   <br></br>
                   <br></br>
-                  <div className={"card-panel"}>
+                  <div  className={'center card black white-text'}>
 
-                <h2 className={'center'}>Sign Up</h2>
+                <h2 className={'center'} >Sign Up</h2>
                 <br></br>
                <form onSubmit={this.handleSubmit}>
                     {/* <label for="first_name">First Name:</label> */}

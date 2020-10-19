@@ -5,7 +5,7 @@ const updateItem = item => {
             item : {
                 name: item.name,
                 price: item.price,
-                price: item.description
+                description: item.description
             }
         }
         const configObj = {

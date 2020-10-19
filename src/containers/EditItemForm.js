@@ -29,6 +29,7 @@ export class EditItemForm extends Component {
             price: "",
             description: ""
         })
+        debugger
         this.props.updateItem(this.state)
         this.props.history.push('/items')
     }
@@ -40,13 +41,13 @@ export class EditItemForm extends Component {
             
         }
         return (
-            <div className={'container'} id="card">
+            <div className={'container white'} id="card">
                 <br></br>
                 <br></br>
                 <br></br>
-                <div className="card-panel white"></div>
+                <div className="card black"></div>
                 <h5 className={"center"}>Update Item</h5>
-                <form onSubmit={this.handleSubmit} >
+                <form id="card-2"onSubmit={this.handleSubmit} >
                     <div className={"input-field"}>
                     <input onChange={this.handleChange} type="text" name="name" id="name" value={this.state.name} placeholder={this.state.name}></input><br></br><br></br>
                     </div>
@@ -63,9 +64,6 @@ export class EditItemForm extends Component {
                     <br></br>                 
                     <button onSubmit={this.handleSubmit}className={"waves-effect waves-light black text-white btn"} type="submit" >Update Item</button>
                 </form>
-                <div id="div">
-
-                </div>
             </div>
         )
     }

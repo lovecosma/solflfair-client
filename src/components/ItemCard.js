@@ -52,11 +52,15 @@ class ItemCard extends Component{
                         </div>
                     </span>
                 </Link> 
+                {/* <div className="card-image">
+                 <img src={item.photo} alt="" width="325" height="400"></img><br></br>
+               </div> */}
                <div style={{padding: "1em"}}>
                   <span><h5>{ item.name }</h5></span>
                </div>
                 <div className="card-content" style={{overflow: 'scroll'}}>
                  <p> $ { item.price } </p>
+
                 </div>
                 <div class="card-action">
                     <button className={"waves-effect waves-light black text-white btn"} onClick={this.addItem}>Add to Cart</button>

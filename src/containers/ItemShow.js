@@ -10,9 +10,12 @@ import { connect } from 'react-redux'
                 <div >
                     <div className="container center">
                         <div>
-                            <span className="card-title"><h2>{ this.props.location.state.name }</h2>
+                            <div className="card-title black white-text">
+                            <h2>{ this.props.location.state.name }</h2>
+                                
+                            </div>
                             <img src={this.props.location.state.photo} alt="" width="650" height="700"></img
-                            ><br></br></span>
+                            ><br></br>
                         </div>
                         <div className="card-panel  black white-text" >
                             {/* <p>Price: {(this.props.item.quantity * this.props.item.price).toFixed(2)}</p>

@@ -20,7 +20,7 @@ export class Nav extends Component {
                         <a href="#" class="brand-logo center">Solflair Jewelry</a>
                         <ul>
                             <li><NavLink to="/">Home</NavLink></li>
-                            <li><NavLink to="/upload_photos">Upload Photos</NavLink></li>
+                            {/* <li><NavLink to="/upload_photos">Upload Photos</NavLink></li> */}
                             <li><NavLink to="/items">Products List</NavLink></li>
                             <li><NavLink to="/items/new">Create Product</NavLink></li>
                             {/* <li><NavLink to="/cart">View Cart</NavLink></li> */}

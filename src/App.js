@@ -45,7 +45,7 @@ class App extends Component {
                     <Switch>
                     <div className={"box"}>
                       <Nav/>
-                      <Route exact path='/' component={ Home }/>
+                      <Route exact path='/' render={routerProps => <Home {...routerProps} items={this.props.itemsReducer.items}/>}/>
                       <Route exact path='/upload_photos' component={ CreatePhoto }/>
                       <Route exact path="/items" render={routerProps => <Items {...routerProps} cart={[]}/> } />
                       <Route exact path="/items/new" component={ ItemForm } />
@@ -61,7 +61,7 @@ class App extends Component {
                 <Switch>
                   <div>
                     <Nav/>
-                    <Route exact path='/' component={ Home }/>
+                    <Route exact path='/' render={routerProps => <Home {...routerProps} items={this.props.itemsReducer.items}/>}/>
                     <Route exact path='/item/:id' render={ routerProps => <ItemShow {...routerProps}/>}/>
                     <Route exact path='/cart' component={ Cart }/>
                     <Route exact path="/items" render={routerProps => <Items {...routerProps} cart={this.props.cartItemsReducer.cartItems}/> } />
@@ -77,6 +77,7 @@ class App extends Component {
                   <Switch>
                     <div>
                       <Nav/>
+                      <Route exact path='/' render={routerProps => <Home {...routerProps} items={this.props.itemsReducer.items}/>}/>
                       <Route exact path='/item/:id' render={ routerProps => <ItemShow {...routerProps}/>}/>
                       <Route exact path="/items" render={routerProps => <Items {...routerProps} />}/>
                       <Route exact path='/login' component={ Login }/>

@@ -22,8 +22,10 @@ import addItemToCart from '../actions/addItemToCart'
         const cartItem = this.props.cartItem
         if (this.props.cartItem.photo) {
             return (
-                <div>
-                    <h3 className="center">{ cartItem.name }</h3> 
+                <div className="container">
+                <div className="black">
+                    <h3 className="center white-text">{ cartItem.name }</h3> 
+                </div>
                     <div className="card-panel hoverable body">
                     <div className="container center">
                     <div style={{width:"100%"}}>
@@ -31,11 +33,11 @@ import addItemToCart from '../actions/addItemToCart'
                     <Link to={{
                             pathname:`/item/${cartItem.item_id}`,
                             state: {...cartItem}  
-                            }}><span>
+                            }}>
                                 <div className="card-image">
-                                    <img src={cartItem.photo} alt="" width="350" height="400"></img><br></br>
+                                    <img src={cartItem.photo} alt="" width="300" height="300"></img><br></br>
                                 </div>
-                            </span>
+                        
                     </Link> 
                     </div>  
                         {/* <div id = "middlebox"> 
@@ -48,8 +50,7 @@ import addItemToCart from '../actions/addItemToCart'
                     <div id = "rightbox" className="card-panel  black white-text">  
                     <p>Price: {(this.props.cartItem.quantity * this.props.cartItem.price).toFixed(2)}</p>
                     <p>Qty: {this.props.cartItem.quantity}</p>
-                    <p style={{overflow: 'auto'}} >I am a very simple card. I am good at containing small bits of information.
-                    I am convenient because I require little markup to use effectively.</p>
+                    <p style={{overflow: 'auto'}} >{this.props.cartItem.description}</p>
                     </div>
                     <div className="card-action">
                     <button className={"waves-effect waves-light black text-white btn"} onClick={this.deleteFromCart}>-</button><button onClick={this.addDuplicate} className={"waves-effect waves-light black text-white btn"}>+</button>

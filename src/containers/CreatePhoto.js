@@ -29,17 +29,6 @@ import { connect } from 'react-redux'
         // this.props.history.push('/items')
     }
     render() {
-        if(this.props.photosReducer.requesting){
-        return (
-            <div className="container">
-              <form onSubmit={this.handleSubmit} action="">
-                <input onChange={this.handleChange}type="text" name="title" id=""></input> 
-                <input onChange={this.handleImageChange} type="file" name="file" id=""></input><br></br>
-                <button className={"waves-effect waves-light black text-white btn"} onSubmit={this.handleSubmit} type="submit" name="submit">Upload Photo</button>
-            </form> 
-            </div>
-        )
-      } else{
         const photocards = this.props.photosReducer.photos.map(photo => {
             return (
             <div>
@@ -49,14 +38,30 @@ import { connect } from 'react-redux'
             </div>
             )
         })
+
+        if(this.props.photosReducer.requesting){
         return (
-            <div className="container">
+            <div>
+                <div className="card-panel white" id="card-2">
               <form onSubmit={this.handleSubmit} action="">
-                <input onChange={this.handleChange}type="text" name="title" id=""></input> 
-                <input onChange={this.handleImageChange} type="file" name="file" id=""></input><br></br>
+                <input className="input-field" onChange={this.handleChange}type="text" name="title" id=""></input> 
+                <input className="input-field" onChange={this.handleImageChange} type="file" name="file" id=""></input><br></br>
+                <button className={"waves-effect waves-light black text-white btn"} onSubmit={this.handleSubmit} type="submit" name="submit">Upload Photo</button>
+                </form> 
+                </div>
+            </div>
+        )
+      } else{
+        return (
+            <div className="card-panel white" id="card-2">
+              <form onSubmit={this.handleSubmit} action="">
+              <input className="input-field" onChange={this.handleChange}type="text" name="title" id=""></input> 
+                <input className="input-field" onChange={this.handleImageChange} type="file" name="file" id=""></input><br></br>
                 <button className={"waves-effect waves-light black text-white btn"} onSubmit={this.handleSubmit} type="submit" name="submit">Upload Photo</button>
             </form>
-            <div>
+            <div className="container center">
+                <div>
+                </div>
                 <h3>
                     Photos
                 </h3>

@@ -4,6 +4,7 @@ const fetchItems = () => {
         fetch('http://localhost:3001/items')
           .then(response => response.json())
           .then(items => {
+              debugger
               dispatch({ type: 'ADD_ITEMS', items })
             });
       };

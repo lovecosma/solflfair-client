@@ -36,11 +36,11 @@ export class ItemForm extends Component {
 
     render() {
         return (
-            <div className={'container white'} id="card">
+            <div className={'container'} id="card">
                 <br></br>
                 <br></br>
                 <br></br>
-                <div className={"card-panel"}>
+                <div className={'center card black white-text'}>
                 <h5 className={"center"}>Create New Item</h5>
                 <form onSubmit={this.handleSubmit} >
                     <div className={"input-field"}>

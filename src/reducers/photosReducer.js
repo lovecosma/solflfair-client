@@ -9,6 +9,7 @@ function photosReducer(state = { photos: [],  requesting: false } , action) {
         
     case 'CREATE_PHOTO':
         return {
+            ...state,
             photos: [...state.photos, action.photo],
             requesting: false
     }
