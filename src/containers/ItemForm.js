@@ -40,7 +40,7 @@ export class ItemForm extends Component {
                 <br></br>
                 <br></br>
                 <br></br>
-                <div className={'center card black white-text'}>
+                <div className={'center card white black-text'} style={{padding: "50px"},{border: "10px double black"}}>
                 <h5 className={"center"}>Create New Item</h5>
                 <form onSubmit={this.handleSubmit} >
                     <div className={"input-field"}>

@@ -23,7 +23,7 @@ const addItemToCart = (user, item, cart) => {
                   body: JSON.stringify(formData)
              }
             dispatch({type: "START_UPDATE_ITEM_QUANTITY"})
-            fetch(`http://localhost:3001/users/${user.id}/cart_items/${contained_item.id}`, configObj)
+            fetch(`https://solflair-api.herokuapp.com/users/${user.id}/cart_items/${contained_item.id}`, configObj)
             .then(resp => resp.json())
             .then(cartItems => {
                 dispatch({type: 'UPDATE_ITEM_QUANTITY', cartItems})
@@ -42,7 +42,6 @@ const addItemToCart = (user, item, cart) => {
                     user_id: user.id
                 }
             }
-            debugger
             const configObj = {
                 method: "POST",
                 headers: {
@@ -52,10 +51,9 @@ const addItemToCart = (user, item, cart) => {
                   body: JSON.stringify(formData)
              }
             dispatch({type: "START_CART_ADD_ITEM"})
-            fetch(`http://localhost:3001/users/${user.id}/cart_items`, configObj)
+            fetch(`https://solflair-api.herokuapp.com/users/${user.id}/cart_items`, configObj)
             .then(resp => resp.json())
             .then(cartItem => {
-                console.log(cartItem);
                 dispatch({type: 'ADD_CART_ITEM', cartItem})
             })
         }   

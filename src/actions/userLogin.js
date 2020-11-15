@@ -13,17 +13,17 @@ const userLogin = user => {
               },
               body: JSON.stringify(formData)
          }
-        fetch('http://localhost:3001/login', configObj)
+        fetch('https://solflair-api.herokuapp.com/login', configObj)
         .then(resp => resp.json())
         .then(session => {
             if (session.status === 200) {
               localStorage.setItem('user', JSON.stringify(session.user))
               dispatch({type:"LOGIN", user: session.user})
             } else {
-                console.log(user.errors)
+                alert(user.errors)
             }
           })
-          .catch(error => console.log('api errors:', error))
+          .catch(error => alert('api errors:', error))
         };
     }
 

@@ -22,47 +22,26 @@ import addItemToCart from '../actions/addItemToCart'
         const cartItem = this.props.cartItem
         if (this.props.cartItem.photo) {
             return (
-                <div className="container">
-                <div className="black">
-                    <h3 className="center white-text">{ cartItem.name }</h3> 
-                </div>
-                    <div className="card-panel hoverable body">
-                    <div className="container center">
-                    <div style={{width:"100%"}}>
-                    <div id = "leftbox"> 
-                    <Link to={{
-                            pathname:`/item/${cartItem.item_id}`,
-                            state: {...cartItem}  
-                            }}>
-                                <div className="card-image">
-                                    <img src={cartItem.photo} alt="" width="300" height="300"></img><br></br>
+                <div>
+                    <tr>
+                        <div className="cart-item-float-container" style={{padding: "20px", display: "flex"}}>
+                            <div className="cart-item-float-child">
+                                <div className="this-float-child">
+                                    <div style={{float: "left"}}>
+                                        <img src={cartItem.photo} width="100%" height="100%" alt="" ></img>        
+                                    </div>
                                 </div>
-                        
-                    </Link> 
-                    </div>  
-                        {/* <div id = "middlebox"> 
-                            <h2>GeeksforGeeks:</h2> 
-                            The course focuses on various MCQ's & Coding  
-                            question likely to be asked in the interviews 
-                            & make your upcoming placement season efficient 
-                            and successful. 
-                        </div>  */}
-                    <div id = "rightbox" className="card-panel  black white-text">  
-                    <p>Price: {(this.props.cartItem.quantity * this.props.cartItem.price).toFixed(2)}</p>
-                    <p>Qty: {this.props.cartItem.quantity}</p>
-                    <p style={{overflow: 'auto'}} >{this.props.cartItem.description}</p>
-                    </div>
-                    <div className="card-action">
-                    <button className={"waves-effect waves-light black text-white btn"} onClick={this.deleteFromCart}>-</button><button onClick={this.addDuplicate} className={"waves-effect waves-light black text-white btn"}>+</button>
-                    </div> 
-                    </div>
-
+                            </div>
+                            <div className="this-float-child">
+                                        <p>{cartItem.name}</p>
+                                        <p>{cartItem.price}</p>
+                                        <div className="card-action">
+                        <button className={"waves-effect waves-light black text-white btn"} onClick={this.deleteFromCart}>-</button><button onClick={this.addDuplicate} className={"waves-effect waves-light black text-white btn"}>+</button>
+                        </div>
+                            </div>
+                        </div>
+                    </tr>
                 </div>
-                    <br></br>
-                    <br></br>
-                  </div>
-                </div>
-          
             ) 
         } else {
             return (

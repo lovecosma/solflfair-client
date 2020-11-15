@@ -28,21 +28,22 @@ class AdminItemCard extends Component{
         const item = this.props.item
         if (item.photo) {
             return (
-                     <div >
-                     <div className="col s12 m6 l4">
-                     <div className="card hoverable" style={{width: '375px'},{overflow: "auto"}}>
-                     <div className="card-image">
-                      <img src={item.photo} alt="" width="325" height="400"></img><br></br>
+                    <div className="z-depth-1" style={{padding:"10px"}}>
+                    <div className="card-wrapper">
+                    <img  src={item.photo}></img>
+
+                    <div className="card-body">
+                    <div className="card-title" >
+                        <h4>{ item.name }</h4>
                     </div>
-                    <div style={{padding: "1em"}}>
-                       <span><h5>{ item.name }</h5></span>
+                      <div className="card-content" >
+                    <div className="item-price">
+                        <p className="flow-text large-font">$ { item.price } </p>
                     </div>
-                     <div className="card-content" style={{overflow: 'scroll'}}>
-                      <p> $ { item.price } </p>
-                       {/* <p >
-                            { item.description }
-                       </p> */}
-                     </div>
+                      <div className="card-description">
+                                { item.description }
+                      </div>
+                     </div><br/><br/>
                      <div class="card-action">
                                 <NavLink to={{
                                 pathname:"/items/edit",
@@ -51,9 +52,9 @@ class AdminItemCard extends Component{
                                 </NavLink>
                             <button onClick={this.delete_Item} className={"waves-effect waves-light black text-white btn"} >Delete</button>
                             </div>
+                        </div>
+                    </div>
                    </div>
-                 </div>
-               </div>
             )   
         } else {
             return (

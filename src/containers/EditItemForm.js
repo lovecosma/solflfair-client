@@ -1,7 +1,6 @@
 import React, { Component, PropTypes } from 'react'
 import  updateItem from '../actions/updateItem'
 import { connect } from 'react-redux'
-import MyStatefulEditor from  '../components/MyStatefulEditor'
 
 
 export class EditItemForm extends Component {
@@ -29,7 +28,6 @@ export class EditItemForm extends Component {
             price: "",
             description: ""
         })
-        debugger
         this.props.updateItem(this.state)
         this.props.history.push('/items')
     }

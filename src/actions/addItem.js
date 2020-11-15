@@ -1,6 +1,5 @@
 
 const addItem = (itemStuff) => {
-    debugger
     return dispatch => {
     dispatch({ type: 'START_ADDING_ITEMS_REQUEST' })
     const itemData = {
@@ -18,7 +17,7 @@ const addItem = (itemStuff) => {
           },
           body: JSON.stringify(itemData)
      }
-    fetch('http://localhost:3001/items', configObj)
+    fetch('https://solflair-api.herokuapp.com/items', configObj)
     .then(resp => resp.json())
     .then(item => {
         dispatch({type: 'ADD_ITEM', item})
@@ -27,7 +26,7 @@ const addItem = (itemStuff) => {
         formData.append("file", itemStuff.photo);
         formData.append("item_id", item.id)
         dispatch({type: "'START_ADDING_PHOTO_REQUEST'"})
-            fetch(`http://localhost:3001/photos`, {
+            fetch(`https://solflair-api.herokuapp.com/photos`, {
                 method: "POST",
                 body: formData
             })

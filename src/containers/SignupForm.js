@@ -37,7 +37,7 @@ export class SignupForm extends Component {
             <div className={"container"} >
                   <br></br>
                   <br></br>
-                  <div  className={'center card black white-text'}>
+                  <div className={'container center white black-text'} style={{padding: "50px"},{border: "10px double black"}} id="card">
 
                 <h2 className={'center'} >Sign Up</h2>
                 <br></br>

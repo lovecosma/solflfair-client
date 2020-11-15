@@ -16,7 +16,7 @@ const createUser = user => {
               },
               body: JSON.stringify(formData)
          }
-        fetch('http://localhost:3001/users', configObj)
+        fetch('https://solflair-api.herokuapp.com/users', configObj)
         .then(resp => resp.json())
         .then(user => {
             if (user.status === 'created') {
@@ -24,10 +24,10 @@ const createUser = user => {
              localStorage.setItem('user', JSON.stringify(current_user))
               dispatch({type:"LOGIN", current_user})
             } else {
-                console.log(user.errors)
+                alert(user.errors)
             }
           })
-          .catch(error => console.log('api errors:', error))
+          .catch(error => alert('api errors:', error))
         };
     }
 

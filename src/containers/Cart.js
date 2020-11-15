@@ -29,18 +29,28 @@ export class Cart extends Component {
                 <div>
                     <br></br><br></br>
                     <h2>loading...</h2>
+
+                    
                 </div>
             )
          }else{
             const cartItemCards = this.props.cartItemsReducer.cartItems.map(cartItem => <CartItemCard id={uuidv4()}cartItem={cartItem}cart={this.props.cartItemsReducer.cartItems}/>)
              return (
-                 <div >
-                     <br></br><br></br>
-                     {cartItemCards}
+                 <div className="container white-text">
+                    <div className="cart-table">
+                        <table>
+                            <div className="cart-contents">
+                                <div className="cart-item-header center">
+                                    <h5>Items</h5>
+                                </div>
+                            {cartItemCards}
+                            </div>
+                        </table>
+                    </div>
                  </div>
              )
          }
-    }
+    }   
 }
 
  const mapStateToProps = state => {

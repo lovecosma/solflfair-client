@@ -26,12 +26,8 @@ export class LoginForm extends Component {
 
     render() {
         return (
-            <div>
-
-            <div className={'center container black white-text'} id="card">
-                <br></br>
-                <br></br>
-                <br></br>
+            <div className="center">
+            <div className={'container center white black-text'} style={{padding: "50px"},{border: "10px double black"}} id="card">
                 <h2>Login</h2>
                <form onSubmit={this.handleSubmit}>
                    <div className={'input-field'}>

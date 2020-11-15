@@ -12,17 +12,17 @@ const userLogout = () => {
               },
               body: JSON.stringify(formData)
          }
-        fetch('http://localhost:3001/logout', configObj)
+        fetch('https://solflair-api.herokuapp.com/logout', configObj)
         .then(resp => resp.json())
         .then(session => {
             if (session.status === 200) {
               dispatch({type:"LOGOUT"})
               localStorage.removeItem("user")
             } else {
-                console.log(session.errors)
+                alert(session.errors)
             }
           })
-          .catch(error => console.log('api errors:', error))
+          .catch(error => alert('api errors:', error))
         };
     }
 

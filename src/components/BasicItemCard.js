@@ -6,27 +6,30 @@ const BasicItemCard = (props) => {
     const item = props.item
         if (item.photo) {
             return (
-                <div >
-                <div className="col s12 m6 l4">
-                <div className="card hoverable" style={{width: '375px'},{overflow: "auto"}}>
-                <Link to={{
-                    pathname:`/item/${item.id}`,
-                    state: {...item}  
-                    }}><span>
-                    <div className="card-image">
-                     <img src={item.photo} alt="" width="250" height="400"></img><br></br>
-                        </div>
-                    </span>
-                </Link> 
-               <div style={{padding: "1em"}}>
-                  <span><h5>{ item.name }</h5></span>
-               </div>
-                <div className="card-content" style={{overflow: 'scroll'}}>
-                 <p> $ { item.price } </p>
+            <div className="z-depth-1" style={{padding:"10px"}}>
+            <div className="card-wrapper">
+                    <img  src={item.photo}></img>
+                <div className="card-body">
+                    <div className="card-title flow-text" >
+                        <h5>{ item.name }</h5>
+                    </div><br/><br/>
+                    <div className="card-content" >
+                    <div className="item-price">
+                        <p className="flow-text large-font">$ { item.price } </p>
+                    </div>
+                    <div className="card-description">
+                        { item.description }
+                    </div>
+                    </div><br/><br/>
+                    <Link to={{
+                                pathname:`/item/${item.id}`,
+                                state: {...item}  
+                                }}>
+                        <button className="waves-effect waves-light black text-white btn" style={{margin: "10px"}}>View Item</button>
+                    </Link>
                 </div>
-              </div>
             </div>
-          </div>
+            </div>
        )      
         } else {
             return (

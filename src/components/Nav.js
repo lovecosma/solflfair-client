@@ -20,7 +20,7 @@ export class Nav extends Component {
                         <a href="#" class="brand-logo center">Solflair Jewelry</a>
                         <ul>
                             <li><NavLink to="/">Home</NavLink></li>
-                            {/* <li><NavLink to="/upload_photos">Upload Photos</NavLink></li> */}
+                            <li><NavLink to="/upload_photos">Upload Photos</NavLink></li>
                             <li><NavLink to="/items">Products List</NavLink></li>
                             <li><NavLink to="/items/new">Create Product</NavLink></li>
                             {/* <li><NavLink to="/cart">View Cart</NavLink></li> */}
@@ -37,8 +37,9 @@ export class Nav extends Component {
                             <li><NavLink to="/">Home</NavLink></li>
                             <li><NavLink to="/items">List Products</NavLink></li>
                             {/* <li><NavLink to="/items/new">Create Product</NavLink></li> */}
-                            <li><NavLink to="/cart">View Cart</NavLink></li>
+                            <li></li>
                             <li><NavLink onClick={ this.handleClick }to="/">Logout</NavLink></li>
+                            <span id="cart-icon" className="right"><li><NavLink to="/cart"><img src="https://img.icons8.com/cotton/40/000000/shopping-cart--v2.png"/></NavLink></li></span>
                         </ul>
                     </nav>
                 )  

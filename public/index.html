@@ -2,13 +2,19 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <link rel="icon" href="https://img.icons8.com/nolan/96/diamond-ring.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
     <meta
       name="description"
       content="Web site created using create-react-app"
     />
+    <meta name="viewport" content="width=device-width">
+    <style>
+      img {
+          max-width: 100%;
+      }
+    </style>
     <style>
       @import url('https://fonts.googleapis.com/css2?family=Homemade+Apple&display=swap');
       @import url('https://fonts.googleapis.com/css2?family=Handlee&display=swap');
@@ -41,9 +47,39 @@
               float: left;
               padding: 20px;
           }
+          .this-float-child {
+              width: 75%;
+              float: left;
+              margin: 20px;
+          }
+          .that-float-child {
+              width: 25%;
+              float: left;
+              margin: 20px;
+          }
+          .cart-item-float-container {
+          padding: 20px;
+          }
+
+          .cart-item-float-child {
+              width: 50%;
+              float: left;
+              padding: 20px;
+          }
           .card-spot {
             overflow: auto;
           } 
+          .cart-contents{
+            padding: 100px;
+            border: solid white;
+          }
+          .cart-table{
+            background-color: black;
+            border: solid white;
+            margin: 100px;
+            height: 750px;
+            overflow: scroll;
+          }
           #leftbox{
             width: 50%;
             float: left;
@@ -54,18 +90,128 @@
             float: left;
             height: 100%
           }
+          tr{
+            border: solid white
+          }
           html { 
-            background: url("http://localhost:3001/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBHdz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--d47c2e71083eb29c04d2df52a14502ab1154d91b/F20815A2-0429-4932-B994-6F64E058666F.jpeg") no-repeat center center fixed; 
+            background: url("https://solflair-api.herokuapp.com/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBIUT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--da092ce04c20c2a44b23ab2eb1741923c992cfa0/F20815A2-0429-4932-B994-6F64E058666F.jpeg") no-repeat center center fixed; 
             -webkit-background-size: cover;
             -moz-background-size: cover;
             -o-background-size: cover;
             background-size: cover;
           }
+          .cart-item-header{
+            width: 100%;
+            border: solid white
+          }
+          .item-show-card{
+            margin: 100px;
+            height: 100%;
+            display: flex;
+          }
+          .item-show-img{
+            width: 500px;
+            height: 640px;
+            border-color: black;
+            border: solid;
+          }
+          .item-show-description{
+            background-color: white;
+            border: solid;
+            overflow: scroll;
+            padding: 20px;
+          }
+          .item-img-title{
+            width: 100%;
+          }
+          .item-show-img-div{
+            width: 50%;
+            float: left;
+            height: 100%;
+            display: flex;
+          }
+          .item-show-info-div{
+            width: 50%;
+            float: left;
+            padding: 50px;
+            height: 100%;
+            background-color: black;
+          }
+          .item-show-title{
+            font-size: x-large;
+
+          }
+          .item-show-brand{
+            font-family: 'Homemade Apple', cursive;
+            font-size: xx-large;
+          }
+          .show-options{
+            background-color: black;
+            width: 50%;
+            float: left;
+            padding: 50px;
+            margin-top: 20px;
+            border: solid black;
+          }
+          .item-card {
+              display: inline-block;
+              width: 33%;
+              height: 25%;
+              margin: 0;
+              border-radius: 10px;
+              border-width: 7px;
+              opacity: 1;
+              font-family: 'Permanent Marker', cursive;
+            }
+          .card-image{
+            width: 100%;
+            border: double;
+          }
+          .card-description{
+            background-color: white;
+            width: 100%;
+            height: 100px;
+            overflow: scroll;
+            font-size:0.6cm;
+            padding: 15px;
+          }
+          .card-wrapper{
+            background-color: white;
+            padding: 0px;
+            border: solid
+          }
+          .card-title{
+            height: 50px;
+            overflow: visible;
+            padding: 15px;
+          }
+          .card-action{
+            padding: 10px;
+          }
+          .item-price{
+            padding: 5px;
+          }
           #card{
-            margin-top: 50px;
+            margin-top: 25px;
+            /* padding: "50px" */
           }
           #card-2{
             padding: 50px;
+          }
+          #cart-icon{
+            margin: 10px
+          }
+          form{
+            margin-top: 25px;
+            margin-bottom: 25px;
+            margin-left: 25px;
+            margin-right: 25px;
+          }
+          .fancy{
+            padding: 10px;
+            background-color: white;
+            font-family: 'Handlee', cursive;
+            width: 100%;
           }
           /* img {
               max-width: 100%;
@@ -90,7 +236,7 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
-    <title>React App</title>
+    <title>Solflair Jewelry</title>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
