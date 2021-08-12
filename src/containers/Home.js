@@ -12,7 +12,7 @@ componentDidMount = () => {
    return (
      <div>
        <div className="container center white-text">
-       <img src="https://solflair-api.herokuapp.com/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBIZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--15f8f9eb22d8ead6108a3fe2025a3ef32dbaccd7/3E53CB0A-5E94-4E01-B2BC-92241438BFBA.jpeg" alt="" width="33%" height="33%"style={{padding: "25px"},{border: "10px double black"}}></img>
+       <img src="http://localhost:3001/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBIZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--15f8f9eb22d8ead6108a3fe2025a3ef32dbaccd7/3E53CB0A-5E94-4E01-B2BC-92241438BFBA.jpeg" alt="" width="33%" height="33%"style={{padding: "25px"},{border: "10px double black"}}></img>
         <div className="container black">
         <h1>Welcome</h1>
         </div>

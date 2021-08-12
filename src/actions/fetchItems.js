@@ -1,7 +1,7 @@
 const fetchItems = () => {
     return dispatch => {
         dispatch({ type: 'START_ADDING_ITEMS_REQUEST' });
-        fetch('https://solflair-api.herokuapp.com/items')
+        fetch('http://localhost:3001/items')
           .then(response => response.json())
           .then(items => {
               dispatch({ type: 'ADD_ITEMS', items })

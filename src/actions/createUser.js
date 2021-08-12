@@ -16,7 +16,7 @@ const createUser = user => {
               },
               body: JSON.stringify(formData)
          }
-        fetch('https://solflair-api.herokuapp.com/users', configObj)
+        fetch('http://localhost:3001/users', configObj)
         .then(resp => resp.json())
         .then(user => {
             if (user.status === 'created') {

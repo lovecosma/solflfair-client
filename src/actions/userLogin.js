@@ -13,7 +13,7 @@ const userLogin = user => {
               },
               body: JSON.stringify(formData)
          }
-        fetch('https://solflair-api.herokuapp.com/login', configObj)
+        fetch('http://localhost:3001/login', configObj)
         .then(resp => resp.json())
         .then(session => {
             if (session.status === 200) {

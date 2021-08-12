@@ -5,7 +5,7 @@ const createPhoto = image => {
         formData.append("file", image.photo);
         formData.append("title", image.title)
         dispatch({type: "BEGIN_CREATE_PHOTO"})
-            fetch("https://solflair-api.herokuapp.com/create_photo", {
+            fetch("http://localhost:3001/create_photo", {
                 method: "POST",
                 body: formData
             })

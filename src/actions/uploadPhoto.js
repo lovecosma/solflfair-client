@@ -1,7 +1,7 @@
 const uploadPhoto = (formData) => {
 return dispatch => {
     dispatch({type: "'START_ADDING_PHOTO_REQUEST'"})
-    fetch(`https://solflair-api.herokuapp.com/photos`, {
+    fetch(`http://localhost:3001/photos`, {
         method: "POST",
         body: formData
       })

@@ -8,7 +8,7 @@ const deleteItem = item => {
             },
         }
         dispatch({type: 'START_ITEM_DELETE_REQUEST'})
-        fetch(`https://solflair-api.herokuapp.com/items/${item.id}`, configObj)
+        fetch(`http://localhost:3001/items/${item.id}`, configObj)
         .then(resp => resp.json())
         .then(updated_items => {
             dispatch({type: 'DELETE_ITEM', updated_items})
